@@ -1,0 +1,235 @@
+# ***************Los operadores lógicos en Python (and, or, not) 
+# se utilizan para "combinar expresiones booleanas" (que son True o False). 
+# Permiten la tomar decisiones basadas en "varias condiciones al mismo tiempo".
+print('Operadores Logicos: and, or, not')
+
+***************Operador and (Y lógico):
+Devuelve True sólo si ambas condiciones son verdaderas.
+Si alguna es False, el resultado es False.
+
+Ejemplo:
+temperatura = 25
+hace_sol = True
+if temperatura > 20 and hace_sol:
+    print("¡Día perfecto para un picnic!")
+El mensaje se imprime sólo si la temperatura es mayor que 20 y está soleado.
+
+
+
+***************Operador or (O lógico):
+Devuelve True si al menos una condición es verdadera.
+Sólo devuelve False si todas las condiciones son falsas.
+
+Ejemplo:
+tiene_paraguas = False
+if hace_sol or tiene_paraguas:
+    print("¡Vamos a pasear!")
+Aquí se sale a pasear si hace sol o si se tiene paraguas.
+
+
+
+***************Operador not (Negación lógica):
+Invierte el valor booleano de una condición.
+Si la condición es True, not la convierte en False, y viceversa.
+#& ⛹🏽⛹🏽⛹🏽⛹🏽 EJERCICIO 1: como puedo expresar que: si es NO hace_sol deberia quedarme en casa
+
+if not hace_sol:
+    print("Quizás deberíamos quedarnos en casa.")
+Se imprime sólo si no está soleado.
+
+
+******************⁉️¿Por qué son importantes?
+Permiten combinar múltiples condiciones en una sola expresión.
+Facilitan la toma de decisiones más complejas y precisas en programas.
+Son fundamentales en estructuras condicionales (if, while) para controlar el flujo del código.
+
+******************Evaluación y cortocircuito
+Python evalúa los operadores lógicos usando evaluación en cortocircuito, es decir:
+En and, si la primera condición es False, no evalúa la segunda porque el resultado ya será False.
+En or, si la primera condición es True, no evalúa la segunda porque el resultado ya será True.
+
+
+
+
+
+
+
+
+
+
+
+
+# ***************Los operadores de Comparación en Python 
+permiten "comparar dos" valores o expresiones y siempre devuelven un 
+resultado booleano (True o False). Usados para tomar decisiones en un programa, 
+por ejemplo dentro de estructuras condicionales (if, while, etc.).
+print('Operadores de Comparación: ==, !=, <, >, <=, >=')
+
+*************⁉️¿Cómo funcionan con tipo de dato numéricos?
+Es intuitivo, comparan sus valores numéricos naturalmente.
+
+Ejemplo:
+print(4 == 4.0)  # True, porque 4 y 4.0 representan el mismo valor numérico
+print(5 > 3)     # True
+
+
+*************⁉️¿Cómo funcionan con tipo de dato Booleanos?
+Se tratan como 1 (True) y 0 (False).
+
+Ejemplo:
+print(True > False)  # True (1 > 0)
+
+
+*************⁉️¿Cómo funcionan con tipo de dato String?
+✅Se comparan lexicográficamente según el orden Unicode de cada carácter.
+Python compara cadena por cadena carácter a carácter, 
+usando el valor numérico Unicode de cada carácter (obtenible con ord(caracter)).
+
+✅La comparación se realiza en orden: se compara el primer carácter de ambas cadenas; 
+si son iguales, se pasa al siguiente, y así sucesivamente.
+El resultado es True o False según la relación entre las cadenas.
+👀Las letras mayúsculas y minúsculas se diferencian porque tienen 
+valores Unicode distintos ('A' < 'a').
+
+✅Solo puedes usar los operadores (==, !=, <, >, <=, >=) entre dos cadenas.
+ 
+Ejemplo:
+print("abc" < "abd")  # True, porque 'c' es menor que 'd'  
+print("A" < "a")      # True, porque mayúsculas tienen menor código Unicode que las minúsculas  
+print("hola" == "hola")  # True  
+print("hola" != "mundo") # True 
+
+🚫No mezcles tipos diferentes, como str con int en comparaciones directas, porque no son compatibles, 
+si lo intentas usando operadores de orden (<, >, etc.), Python lanzará un TypeError. 
+Sin embargo, == y != sí pueden comparar distintos tipos siempre, retornando casi siempre False 
+(excepto casos especiales).
+print("3" == 3)  # False  
+print("3" < 3)   # TypeError 
+
+®️🤯Resumen clave
+👀Los operadores de comparación devuelven True o False.
+👀Debes comparar preferentemente valores del mismo tipo para evitar errores.
+👀Para cadenas, la comparación es lexicográfica, sensible a mayúsculas y minúsculas.
+👀En tipos numéricos, se comportan naturalmente según valor.
+👀== y != pueden comparar distintos tipos pero otros operadores NO.
+print('"M" == 77', "M" == 77)           #*"M" == 77 False
+print('ord("M") == 77', ord("M") == 77) #*ord("M") == 77 True
+
+
+
+
+
+
+# ***************Los operadores de Asignación en Python 
+Sirven para asignar valores a variables y actualizar esos valores. 
+El operador básico es =, que asigna directamente un valor, pero existen operadores compuestos 
+que combinan una operación con la asignación.
+
+*****************Operador básico de asignación
+= asigna el valor de la derecha a la variable de la izquierda.
+x = 7  # x recibe el valor 7
+
+
+******************Operadores de asignación compuestos
+Permiten realizar una operación con el valor actual de la variable y luego 
+asignar el resultado a esa misma variable. Son equivalentes a escribir la operación completa 
+con asignación, pero en forma abreviada.
+
+
+®️Resumen
+✅El operador = asigna un valor directamente.
+✅👀🤯Los operadores compuestos (+=, -=, *=, etc.) modifican la variable basándose en su valor actual.
+✅Son útiles para escribir código más limpio y eficiente.
+
+
+x = 5
+x += 5
+x -= 2
+x *= 10
+x /= 2
+x //= 4
+x %= 4
+print("x es = ", (x)) #* x es =  2.0
+x **= 0               #* Resultado 1.0
+print("Resultado", (x)) 
+
+
+print('Ejercicios')
+a = 7
+b = 2
+
+x = a
+x += b      #* x = x + 2 = 9
+print('x += b:', x)
+
+x = a
+x -= b      #* x = x - 2 = 5
+print('x -= b:', x)
+
+x = a
+x *= b      #* x = x * 2 = 14
+print('x *= b:', x)
+
+x = a
+x /= b      #* x = x / 2 = 3.5
+print('x /= b:', x)
+
+x = a
+x %= b      #* x = x % 2 = 1
+print('x %= b:', x)
+
+x = a
+x //= b     #* x = x // 2 = 3
+print('x //= b:', x)
+
+x = a
+x **= b     #* x = x ** 2 = 49
+print('x **= b:', x)
+
+
+
+*********************🤯👀 Mirar Propiedades de las potencias
+0 elevado a la 0 está indefinido matemáticamente. Pero en Python 𝟎^𝟎  = 1
+Esto es porque, y para evitar ambigüedades en cálculos y funciones, Python define 0**0 como 1
+print('0**0 = ', 0**0) # *0**0 = 1
+print('2**-3 = ', 2**-3) # *2**-3 = 0.125
+print('(1/3)**-2 = ', (1/3)**-2) # *(1/3)**-2 =  9.000000000000002
+
+
+
+
+
+# ***************La Precedencia Matemática
+La regla de precedencia matemática en Python establece el orden en que se evalúan 
+los operadores dentro de una expresión. Los operadores con mayor precedencia se ejecutan primero, 
+y en caso de operadores con igual precedencia se siguen reglas de asociatividad 
+(por ejemplo, potencias se asocian de derecha a izquierda, otros operadores de izquierda a derecha).
+
+#*****************Reglas de la precedencia de operadores en Python:
+1️⃣. Los paréntesis () tienen la precedencia más alta y siempre sirven para forzar un orden específico 
+en la evaluación de expresiones.
+
+2️⃣. La potenciación ** es asociativa a la derecha, es decir, en una expresión como 2 ** 3 ** 2 se evalúa 
+primero 3 ** 2 y luego el resultado eleva a 2:
+2 ** (3 ** 2)  # equivalente a 2 ** 9 = 512
+
+3️⃣. Los operadores de multiplicación *, división /, división entera // y módulo % tienen la misma precedencia 
+y se evalúan de izquierda a derecha.
+
+4️⃣. La suma + y resta - tienen precedencia menor que la multiplicación y división, 
+pero mayor que los operadores de desplazamiento y lógicos, y también se evalúan de izquierda a derecha.
+
+5️⃣. Las comparaciones (<, <=, >, >=, ==, !=), junto con los operadores de identidad 
+(is, is not) y pertenencia (in, not in), tienen una precedencia intermedia.
+
+6️⃣. Los operadores lógicos not, and y or tienen la menor precedencia, y se evalúan en ese orden: 
+primero not, luego and, y finalmente or.
+
+
+print('precedencia.py')
+
+print((2+ 2) * 10**2 /5) # *80.0 ((), potencia, división, suma)
+print( 2+ 2  * 10**2 /5) # *42.0 (potencia, multiplicacion, división, suma)
+
+print(2 ** 3 ** 2)   # calcula 2 ** (3 ** 2) = 2 ** 9 = 512
+print((2 ** 3) ** 2) # calcula (2 ** 3) ** 2 = 8 ** 2 = 64
