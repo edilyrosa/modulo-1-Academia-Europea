@@ -1,0 +1,106 @@
+# & 1. LISTAS: son Colecciones ordenadas de datos, el orden es secuencial y preciso.
+# Cada dato coleccionado es un elemento.
+# La lista puede contener cualquier tipo de dato, incluso otras listas.
+# Al elemento se accede por su posición (índice, que comienza desde 0), para:
+# Obtenerlo, establecerlo, Modificarlo y Eliminarlo, entonces las listas son mutables.
+#! Acceder a una posición fuera de rango, genera un error.
+#* Se sabe su tamaño con la función len(), 🤯🤯🤯🤯👀👀👀🚩que cuenta desde 1
+# Existen las Matrices (listas de listas), y accedes a los elementos del elemento lista con el 2do []
+
+
+#? Se representa, encerrando sus elementos entrecorchetes []
+#? Acceso a los elementos de una lista
+#?Acceso con indices negativos
+#? Modificación de un elemento
+#?TDD de las Listas
+#?Longitud de la lista
+#?Matrices (listas de listas)
+
+#! print(fru) -> NameError: name 'fru' is not defined
+fru = ['manzana', 'pera', 'naranja']
+
+
+
+
+
+# 👀🤯Todos estos métodos:
+# La lista los llama
+# El índice comienza desde 0 
+# Modifican la lista in situ, o sea el método altera directamente la lista original en memoria, 
+# y queda cambiada. Menos los de consulta como index(ele)
+
+# & 2. Medotos mas importantes de las listas
+
+# ?mi_lista.append(elemento): Añadir un elemento al final de la lista: 
+
+
+#? mi_lista.insert(indice, elemento): Añadir un elemento en una posición específica: 
+# El nuevo ele se añade en la posición dada, desplaza una posicion hacia la derecha que que estaba alli.
+# La posicion dada cuenta desde 0
+
+
+#? mi_lista.remove(elemento): Eliminar un elemento por su !!!⭐valor!!!!
+# Elimina la primera ocurrencia del elemento especificado.
+# Si el elemento no existe, genera un error ValueError.
+
+
+
+#* mi_lista.pop(posicion): eliminar un elemento por su !!!⭐indice!!!
+# Elimina el elemento en la posición especificada y lo devuelve.
+# Si no se especifica una posición, elimina y devuelve el último elemento de la lista.
+# La posicion dada cuenta desde 0
+
+
+#* mi_lista.clear(): eliminar todos los elementos de la lista, dejándola vacía.
+
+
+#* mi_lista.index(elemento): Devuelve el índice del primer elemento encontrado con el valor especificado.
+# Si el elemento no existe, genera un error ValueError.
+
+
+
+#? mi_lista.sort(): Ordena los elementos de la lista.
+#por defecto, ordena de menor a mayor (ascendente) y con parametro reverse=True ordena de mayor a menor (descendente).
+# Los elementos deben ser del mismo tipo para poder ordenarlos.
+# Si la lista contiene elementos de diferentes tipos, genera un error TypeError.
+
+#? mi_lista.reverse(): Invierte el orden de los elementos de la lista.
+
+
+
+# # & OPERADOR DE PERTENENCIA.
+# Verifican si un valor o elemento está dentro de una colección 
+# (como listas, tuplas, cadenas, conjuntos, diccionarios).
+# Estructura: ele in coleccion ➡️ Devuleve un booleano True o False.
+
+lista_alumnos = ['Juan', 'Maria', 'Pedro']
+print('Juan' in lista_alumnos)  # True, porque 'Juan' está 
+print('Juan' not in lista_alumnos)  # False, porque 'Juan' está 
+
+
+
+
+
+
+
+
+#& CONTATENACION
+# Es el proceso de unir dos o más cadenas (strs) en una sola. Algunas formas de hacerlo, son:
+
+#? Metodo join() para unir cadenas con un separador
+
+#?1. Operador +
+
+#?2. Operador += : Añade una cadena a otra existente, con la asignación.
+
+#? 3. Método .format(): Inserta valores en una plantilla de cadena.
+
+#? 4. f-strings (desde Python 3.6): Forma moderna y muy legible de concatenar variables dentro de cadenas.
+
+#?5. Operador % (más antiguo): Usa marcadores de posición para insertar valores.
+#El operador % espera especificadores de formato como %s (string), %d (entero), etc.
+
+
+#* Nota importante
+# Para concatenar cadenas con números, primero debes convertir los números a cadena con str() 
+# o usar alguno de los métodos que permiten insertar variables directamente (format(), f-strings, %).
