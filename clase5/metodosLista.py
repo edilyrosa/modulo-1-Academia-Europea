@@ -69,7 +69,9 @@ print('original', lista_letras)
 
 
 
-#!🚩👀 print('ordenadas', lista_letras.sort()) esto retorna None, no la lista ordenada, aca esta la pequena confucion de la clase!!🚩👀
+#!🚩👀 print('ordenadas', lista_letras.sort()) # esto retorna None, no la lista ordenada, aca esta la pequena confucion de la clase!!🚩👀
+print('ordenadas', lista_letras.sort()) # esto retorna None, no la lista ordenada, aca esta la pequena confucion de la clase!!🚩👀
+
 lista_letras.sort()               #? Ordena la lista in situ
 print('ordenadas', lista_letras)  #? ya la lista es ordenada
 
@@ -83,3 +85,6 @@ lista_num_dos = [1, 2, 3, 4, 5]
 print('original', lista_num_dos)    
 lista_num_dos.reverse()
 print('con reverse()', lista_num_dos)
+
+
+#lista_num_dos[-1]
