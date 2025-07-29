@@ -1,0 +1,317 @@
+
+#& ************************************Buscar máximo y mínimo
+valores = [23, 56, 11, 78]
+print(max(valores))   # 78
+print(min(valores))   # 11
+
+
+# letras = ['a', 'A', 22] #!not supported between instances of 'int' and 'str'
+letras = ['a', 'A', 'Hola']
+print(max(letras))   # a 
+print(min(letras))   # A
+print(ord('a'), ord('A'), ord('H')) # 97 65 72
+
+
+
+
+
+
+
+
+
+
+# *************************************LISTAS
+# sabemos obtener la posicion de un elemento: index(ele)
+# sabemos acceder a elementos individuales por su Indexación (Indexing): letras[0], letras[-1] (último elemento)
+# sabemos la longitud de la lista: len(mi_lista)
+
+# sabemos insertar elementos: insert(i, ele), append(ele)
+# sabemos eliminar elementos: remove(ele), pop(i), pop()
+# sabemos limpiar o Vaciar la lista: clear()
+
+# sabemos ordenar la lista: sort(), sort(reverse=True), sort(key=len), sort(key=abs), sort(key=abs, reverse=True), sort(key=str.casefold) 
+# sorted(mi_list) -> Devuelve nueva lista, la original no cambia
+
+
+#&Merging (fusionar) de listas: el orden importa
+#? 1. Con el operador + (es como si lo concatenaras)
+#? 2. Con el operador de asignacion combinado += (es como si lo concatenaras)
+#? ⭐⭐EXTRA: Simple Asignacion es solo copia ni combina, es un espejo
+#? 3. metodo mi_list.extend(iterable): combina dos iterables.
+#? 4.  La sintaxis de unpacking con * para combinar listas ( [ *lista1, *lista2 ]) 
+#?⭐⭐ EXTRA – Desestructuración para asignar variables desde una lista:
+
+#!CODIGO!!
+
+#? 1. Con el operador + (es como si lo concatenaras)
+lista_uno = [1,2,3,4,5]
+lista_dos = [6,7,8,9,10]
+lista_final = lista_uno + lista_dos    #* Operador +
+print('con + ', lista_final)
+# 🏳️👀 No modifica las listas originales.
+
+#? 2. Con el operador de asignacion combinado += (es como si lo concatenaras)
+lista_final +=lista_dos               #* Operador +=, al ser asignacion afecta la lista.
+print('con += ',lista_final) 
+
+
+#? ⭐⭐EXTRA: Simple Asignacion es solo copia ni combina, es un espejo
+lista_espejo = ['a','b','c']
+lista_reflejo = lista_espejo 
+lista_reflejo.append('z')
+print('lista_espejo', lista_espejo) #* lista_espejo ['a', 'b', 'c', 'z']
+
+
+
+#? 3. metodo mi_list.extend(iterable): combina dos iterables.
+# 🚩👀 Modifica la lista original añadiendo al final los elementos del iterable parametro.
+# Para agregar los elementos en la lista existente que lo llama, sin crear una nueva.
+print(lista_uno)
+print(lista_uno.extend(lista_dos))    #* Recuerda None, pero afecta  in situ.
+print('Con metodo extend() ',lista_uno)
+
+
+print(lista_uno)
+lista_uno.extend('edily')            #* 👀 Los str son itelables
+#lista_uno.extend(23) #!
+#print(lista_uno) #!TypeError: 'int' object is not iterable
+
+
+
+#? 4.  La sintaxis de unpacking con * para combinar listas ( [ *lista1, *lista2 ]) 
+# al asignarlo a un TDD lista, crea una lista nueva combinando las dos listas
+# Expande los elementos del iterable que lo usa. "Desempaqueta" los elementos en una nueva lista o para pasar argumentos a funciones
+
+lista_desempaquetada = [1,2,3, *lista_dos]
+print('lista_desempaquetada ', lista_desempaquetada)
+lista_desempaquetada_dos = [lista_uno, *lista_dos]           #*👀 No desempaquete el 1er ele
+print('lista_desempaquetada_dos ', lista_desempaquetada_dos) #*👀 No desempaquete el 1er ele
+
+#?⭐⭐ EXTRA – Desestructuración para asignar variables desde una lista:
+a, b, c = [1, 2, 3]
+print(c)  # 3
+
+
+
+
+
+
+
+
+
+#&********************************************  Slicing de listas
+# Obtiener subsecuencias, cortando la lista. Sintaxis lista[inicio:fin:paso].
+#*1. inicio: índice desde donde comienza el corte.
+# Incluye el elemento en esta posición, Si se omite es 0, (índice 0).
+# Puede ser negativo, contando desde el final (-1 es el último elemento).
+#*2. fin: índice donde termina el corte. 
+#👀🚩 NO incluye el elemento en esta posición, entonces + 1 -> (i+1)
+# Si se omite va hasta el final.
+# También puede ser negativo para contar desde el final (-1 es el último elemento).
+#*3. paso: Indica de cuánto en cuánto se avanza para tomar elementos.
+# Por defecto es 1, que significa que se toman elementos consecutivos.
+# Puede ser un número negativo, lo que indica que la secuencia se recorre en sentido inverso (de atrás hacia adelante).
+# ❌No puede ser 0 (causa un error).
+lista_num = [1,2,3,4,5,6,7,8,9,10]
+#? Elementos:{5-10}-> {i al i+1}
+
+#? Paso negativo: recorrer al revés
+
+#? 🧠✏️Consideraciones
+# Si paso es positivo, inicio debe ser menor que fin para obtener elementos.
+# Si paso es negativo, inicio debe ser mayor que fin, recorriendo al revés.
+# El índice fin no está incluido en el resultado, sumale 1.
+
+
+#!CODIGO
+
+print(lista_num[4:10])  # De índice 4 a (9+1):
+print(lista_num[:4])    #* Desde inicio hasta índice (4+1)
+print(lista_num[3:])    #* Desde índice 3 hasta final:
+print(lista_num[::2])   #Todos, saltando de 2 en 2:
+print(lista_num)        #* No afecta la lista
+
+#? Paso negativo: recorrer al revés
+print(lista_num[::-1])   #* Invierte la lista -> [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+print(lista_num[9:2:-1]) #*De índice 9 a (2+1) (inversa 1 en 1) -> [10, 9, 8, 7, 6, 5, 4]
+print(lista_num[9:2:-2]) #*De índice 9 a (2+1) (inversa de 2 en 2) -> [10, 8, 6, 4]
+
+#? 🧠✏️Consideraciones
+# Si paso es positivo, inicio debe ser menor que fin para obtener elementos.
+# Si paso es negativo, inicio debe ser mayor que fin, recorriendo al revés.
+# El índice fin no está incluido en el resultado, sumale 1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+#& *****************************************Iterable
+# Cualquier objeto que puedes recorrer elemento a elemento, es decir, un objeto sobre el que puedes iterar en un bucle 
+# Las listas, tuplas, cadenas de texto, diccionarios, conjuntos son objetos iterable porque puedes recorrerlos con ciclo.
+# Cuando usas un ciclo sobre un iterable, internamente se crea un iterador para ir obteniendo elemento por elemento.
+#? 1. FOR:Recorre o itera sobre una secuencia 
+#sintaxis: 
+# for varEleIterado in iterable:
+     # bloque de código usando varEleIterado
+
+lista = [1, 2, 3, 4, 5]
+
+#? 2. 👀⭐⁉️🤯 puede establecer un condicional dentro de un bucle? CLARO
+#& 3. Sentencias de control dentro de bucles
+#? break: Interrumpe y sale completamente del bucle, sin importar la condición del ciclo.
+#? continue: Salta el resto del código y pasa a la siguiente iteración.
+#? pass> No hace nada, es un marcador de posición (útil para mantener la sintaxis cuando quieres dejar código pendiente).
+
+
+
+
+#? 4. Bucles anidados (loops dentro de loops): para recorrer matrices y acceder a cada elemento.
+# Una matriz es una lista de listas
+# Cada ele de la lista principal es una FILA de la matriz (una lista). = 'i'
+# Cada ele dentro de una fila es un valor en una COLUMNA. = 'j'
+# matriz = [
+#     [0, 1, 1],  # fila 0
+#     [1, 0, 1],  # fila 1
+#     [1, 1, 0]   # fila 2
+# ]
+
+# El bucle externo itera sobre las filas (i es el índice de fila).
+# El bucle interno itera sobre las columnas (j es el índice de columna), elemento por elemento.
+
+# Ejemplo para imprimir cada elemento con su posición:
+
+
+matriz = [
+    [1, 2, 3],  # fila 0
+    [4, 5, 6],  # fila 1
+    [7, 8, 9]   # fila 2
+]
+
+print('cuantos ele tiene matriz ',len(matriz)) # 3
+# #?range(start, stop, step)
+print('Elementos range esempaquetada', *range(6)) # 0 1 2 3 4 5
+print(*range(1, 6)) #1 2 3 4 5
+print(*range(3)) #0 1 2
+
+
+
+#CODIGO
+for elemento in lista:
+    print('Elemento', elemento)
+
+for elemento in lista:
+    print('Elevado', elemento**2)
+
+lista_Cuadrada = []
+for elemento in lista:
+    lista_Cuadrada.append(elemento**2)
+
+print('lista_Cuadrada', lista_Cuadrada)
+
+
+#?👀⭐⁉️🤯 puede establecer un condicional dentro de un bucle? CLARO
+
+for ele in lista:
+    if(ele%2 ==0):
+        print(f'El elemento {ele} es par')
+        
+        
+
+#& 3. Sentencias de control dentro de bucles
+#? break: Interrumpe y sale completamente del bucle, sin importar la condición del ciclo.
+for i in lista:
+    if i == 3:
+        break  #* Sale cuando i es 5
+    print(f'Imprimiremos hasta el 2, es {i}')
+    
+    
+
+#? continue: Salta el resto del código y pasa a la siguiente iteración.
+for i in lista:
+    if i == 2:
+        continue  # No ejecuta el print para i=2
+    print(i) # Salida: 1 3 4 5
+
+
+#? pass> No hace nada, es un marcador de posición (útil para mantener la sintaxis cuando quieres dejar código pendiente).
+for i in lista:
+    pass  # Aquí no se ejecuta nada, pero sintácticamente válido
+
+
+
+print('estamos en el fuera del for')
+
+
+
+
+#? 4. Bucles anidados (loops dentro de loops): para recorrer matrices y acceder a cada elemento.
+# Una matriz es una lista de listas
+# Cada ele de la lista principal es una FILA de la matriz (una lista). = 'i'
+# Cada ele dentro de una fila es un valor en una COLUMNA. = 'j'
+# matriz = [
+#     [0, 1, 1],  # fila 0
+#     [1, 0, 1],  # fila 1
+#     [1, 1, 0]   # fila 2
+# ]
+
+# El bucle externo itera sobre las filas (i es el índice de fila).
+# El bucle interno itera sobre las columnas (j es el índice de columna), elemento por elemento.
+
+# Ejemplo para imprimir cada elemento con su posición:
+
+
+matriz = [
+    [1, 2, 3],  # fila 0
+    [4, 5, 6],  # fila 1
+    [7, 8, 9]   # fila 2
+]
+
+print('cuantos ele tiene matriz ',len(matriz)) # 3
+# #?range(start, stop, step)
+print('Elementos range esempaquetada', *range(6)) # 0 1 2 3 4 5
+print(*range(1, 6)) #1 2 3 4 5
+print(*range(3)) #0 1 2
+
+
+for i in range(len(matriz)):          # Núm de filas en la matriz        -> recorre 0, 1, 2 - indices de filas
+    for j in range(len(matriz[i])):   # Núm de columnas hay en la fila i -> recorre 0, 1, 2 - indices de columnas en fila i
+        valor = matriz[i][j]          # accede al elemento en fila i, columna j 
+        print(f"Elemento en fila {i}, columna {j} es {valor}")
+
+
+
+
+
+
+
+
+#& ******************************** Bucle while
+# Repite un bloque de código mientras una condición lógica sea verdadera.
+# Sintaxis:
+# while condición:
+#     # bloque de código a repetir
+#! 🚩🚩🚩👀🤯❌ Si no modificas una variable DENTRO del while que termina la condición, puede generar un bucle infinito.
+
+
+i = 1          
+while i <= 5:  #* Mientras i sea menor o igual a 5
+    print(f"Valor de i: {i}")
+    i += 1     #* 👀🚩Incrementar i para evitar bucle infinito
+
+
+
+j = 5
+while j > 0:
+    print(f'Contador es {j}')
+    #!++j INFINITO
+    j-=1
+
+#! 🚩🚩🚩👀🤯❌ Si no modificas una variable DENTRO del while que termina la condición, puede generar un bucle infinito.
