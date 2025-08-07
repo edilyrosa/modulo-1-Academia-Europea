@@ -1,0 +1,4 @@
+Hola mundo desde salida.txt
+Hola America desde salida.txt
+Hola Pais desde salida.txt
+Hola Ciudad desde salida.txt
