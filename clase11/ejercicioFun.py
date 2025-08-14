@@ -1,0 +1,1 @@
+# Crea una función que calcule el precio final de un producto después de aplicar un descuento. La función debe recibir el precio original, el porcentaje de descuento, y si aplica el descuento, y devolver el precio final, lo que dependerá de si aplica o no el descuento.
