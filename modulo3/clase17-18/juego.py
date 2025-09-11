@@ -169,12 +169,11 @@ def revisar(pregunta, entrada):
     
 
 #*********************juego*********************
-
-def jugar(jugadores,rondas=DEFAULT_ROUNDS):
+def jugar(jugadores, rondas=DEFAULT_ROUNDS):
     puntaje = { j:0 for j in jugadores}
     
     print('QUIZ MATEMATICO SIMPLE!!')
-    print(f'Jugadores: {', '.join(jugadores)} | Rondas: {rondas}\n')
+    print(f"Jugadores: {', '.join(jugadores)} | Rondas: {rondas}\n")        #! estabamos usando ' y dentro ',' ' -> " ',' " 
     
     for r in range(1, rondas+1):
         print('='*40) 
@@ -187,11 +186,33 @@ def jugar(jugadores,rondas=DEFAULT_ROUNDS):
         
         if revisar(pregunta, entrada):
             print('✅ Correcto !!')
-            puntaje[jugador] +=1
+            puntaje[jugador] +=1 #si es correcto actualizamos el juntaje del jugadodor pues resp fue correcta.
+        else:                                                                #todo: False: Mensaje y mostramos la correcta                  
+            print(f"❌ Incorrecto. Respuesta correcta: {pregunta['resp']}")  #todo  
             
     print('\n*****************RESULTADOS****************')
     # 1. mostraremos todos los jugadores y sus puntaje
-    for j,p in puntaje.items():
-        print(f'{j}:{p} punto(s)') 
+    for j, p in puntaje.items():
+        print(f"{j}: {p} punto(s)") 
         
-    # 2. mostraremos el ganador o ganadores en caso de empate
+    # TODO: 2. Mostrar EL ganador o Empatados -> .values() return lista de solo los puntajes. max(...) -> valor máximo de la list
+    max_p = max(puntaje.values()) #el maximo puntaje obt.
+    ganadores = [ j for j, p in puntaje.items() if p == max_p]
+    if len(ganadores) == 1: #1 solo ganador
+        print(f' 🥇Ganador {ganadores[0]} con {max_p} puntos !!!')
+    else:
+        print(f' 🥇Ganadores empatados {", ".join(ganadores)} con {max_p} puntos !!!')
+        
+        
+def main():
+    a = input('Alumno 1 (Default Marta): ') or 'Marta'
+    b = input('Alumno 2 (Default Carlos): ') or 'Carlos'
+    c = input('Alumno 3 (Default Profe): ') or 'Profe'
+    jugadores = [a, b, c]
+    rondas =  c = input(f'Numero de Rondas a jugar (default {DEFAULT_ROUNDS}): ')
+    rondas =  int(rondas) if rondas.strip() else DEFAULT_ROUNDS
+    jugar(jugadores, rondas) 
+        
+        
+main()  
+        
